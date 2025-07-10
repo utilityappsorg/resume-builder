@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 20px;
   background: #7488b9;
+
 }
 
 .container {
@@ -64,4 +65,9 @@ button:hover {
   background: linear-gradient(90deg, #007bff, #00c6ff);
   border-radius: 8px 0 0 8px;
   transition: width 0.3s;
+}
+
+.profile-picture-section {
+  margin-bottom: 20px;
+  text-align: center;
 }
