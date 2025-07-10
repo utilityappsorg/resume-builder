@@ -23,3 +23,28 @@ function generateResume() {
 
   document.getElementById("output").innerHTML = output;
 }
+
+// Add this script at the end of your HTML file or in a JS file
+const inputs = document.querySelectorAll('input, textarea');
+const progressBar = document.getElementById('progressBar');
+
+function updateProgress() {
+  let filled = 0;
+  inputs.forEach(input => {
+    if (input.value.trim() !== '') filled++;
+  });
+  const percent = Math.round((filled / inputs.length) * 100);
+  progressBar.style.width = percent + '%';
+}
+
+inputs.forEach(input => {
+  input.addEventListener('input', updateProgress);
+});
+
+// Initialize on page load
+updateProgress();
+
+document.getElementById("downloadPdfBtn").addEventListener("click", function () {
+  const element = document.getElementById("output"); // The resume preview section
+  html2pdf().from(element).save("resume.pdf");
+});
