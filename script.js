@@ -6,8 +6,10 @@ function generateResume() {
   const experience = document.getElementById("experience").value;
   const education = document.getElementById("education").value;
   const skills = document.getElementById("skills").value.split(",");
+  const profilePicSrc = document.getElementById("profilePicPreview").src;
 
   const output = `
+    ${profilePicSrc ? `<img src="${profilePicSrc}" alt="Profile Picture" style="width:120px;height:120px;border-radius:50%;margin-bottom:10px;">` : ""}
     <h3>${name}</h3>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Phone:</strong> ${phone}</p>
@@ -23,6 +25,23 @@ function generateResume() {
 
   document.getElementById("output").innerHTML = output;
 }
+
+// Profile picture preview
+document.getElementById("profilePic").addEventListener("change", function (e) {
+  const file = e.target.files[0];
+  const preview = document.getElementById("profilePicPreview");
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (evt) {
+      preview.src = evt.target.result;
+      preview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+    preview.style.display = "none";
+  }
+});
 
 // Add this script at the end of your HTML file or in a JS file
 const inputs = document.querySelectorAll('input, textarea');
@@ -43,8 +62,3 @@ inputs.forEach(input => {
 
 // Initialize on page load
 updateProgress();
-
-document.getElementById("downloadPdfBtn").addEventListener("click", function () {
-  const element = document.getElementById("output"); // The resume preview section
-  html2pdf().from(element).save("resume.pdf");
-});
