@@ -31,4 +31,66 @@ button:hover {
   border-top: 1px solid #ccc;
   margin-top: 30px;
   padding-top: 20px;
+  width: auto;
+  min-width: 500px;
+  max-width: 100%;
+  margin: 40px auto 0 auto;
+  background: #f9f9f9;
+  border: 2px solid #007bff;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 32px 40px 32px 40px;
+  color: #222;
+  font-family: 'Arial', sans-serif;
+  overflow: visible;
+  display: block;
 }
+
+.resume-preview h2 {
+  color: #007bff;
+  margin-bottom: 18px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.resume-preview h3 {
+  color: #333;
+  margin-bottom: 6px;
+  font-size: 1.5rem;
+}
+.resume-preview h4 {
+  color: #0056b3;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #e0e7ef;
+  padding-bottom: 2px;
+}
+.resume-preview ul {
+  margin: 0 0 0 18px;
+  padding: 0;
+}
+.resume-preview li {
+  margin-bottom: 3px;
+  font-size: 1rem;
+}
+.resume-preview img {
+  display: block;
+  margin: 0 auto 12px auto;
+  border: 3px solid #007bff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  max-width: 120px;
+  max-height: 120px;
+}
+.resume-preview p {
+  margin: 4px 0 10px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
