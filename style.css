@@ -94,3 +94,24 @@ footer {
   color: #555;
 }
 
+.progress-bar-container {
+  width: 100%;
+  background: #e0e7ef;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  height: 18px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  border-radius: 8px 0 0 8px;
+  transition: width 0.3s;
+}
+
+.profile-picture-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
