@@ -62,3 +62,4 @@ inputs.forEach(input => {
 
 // Initialize on page load
 updateProgress();
+
