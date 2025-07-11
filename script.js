@@ -68,16 +68,35 @@ updateProgress();
 
 document.getElementById("generateDownloadBtn").addEventListener("click", function () {
   generateResume();
-
   setTimeout(() => {
-    const outputDiv = document.getElementById("output");
-    const opt = {
-      margin: 0.5,
-      filename: 'resume.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    html2pdf().set(opt).from(outputDiv).save();
+    const previewDiv = document.getElementById("resume-preview");
+    previewDiv.classList.add("pdf-export");
+    const originalWidth = previewDiv.style.width;
+    const originalTransform = previewDiv.style.transform;
+    // A4 page width in pt (595.28pt), minus margins (40pt total)
+    const pdfPageWidth = 595.28 - 40;
+    // Get the current width of the preview in pixels
+    const previewRect = previewDiv.getBoundingClientRect();
+    const previewWidth = previewRect.width;
+    // Calculate scale to fit A4 width
+    const scale = pdfPageWidth / previewWidth;
+    previewDiv.style.transformOrigin = 'top left';
+    previewDiv.style.transform = `scale(${scale})`;
+    // Use jsPDF from the UMD build loaded via CDN
+    const jsPDFConstructor = window.jspdf && window.jspdf.jsPDF ? window.jspdf.jsPDF : window.jsPDF;
+    const pdf = new jsPDFConstructor({ unit: 'pt', format: 'a4', orientation: 'portrait' });
+    pdf.html(previewDiv, {
+      callback: function (doc) {
+        doc.save('resume.pdf');
+        previewDiv.classList.remove("pdf-export");
+        previewDiv.style.width = originalWidth;
+        previewDiv.style.transform = originalTransform;
+      },
+      margin: [20, 20, 20, 20],
+      autoPaging: 'text',
+      x: 0,
+      y: 0,
+      html2canvas: { scale: 1, useCORS: true, backgroundColor: '#fff' }
+    });
   }, 100);
 });
