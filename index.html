@@ -5,37 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resume Builder</title>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" href="Indian Red Simple Book Store Logo.jpg" type="image/x-icon">
 </head>
 <body>
   <div class="container">
     <h1>Resume Builder</h1>
-    <div class="form-section">
-      <form id="resume-form">
-        <label>Name: <input type="text" id="name" required></label>
-        <label>Email: <input type="email" id="email" required></label>
-        <label>Phone: <input type="text" id="phone"></label>
-        <label>Summary: <textarea id="summary"></textarea></label>
-        <label>Experience: <textarea id="experience"></textarea></label>
-        <label>Education: <textarea id="education"></textarea></label>
-        <label>Skills (comma-separated): <input type="text" id="skills"></label>
-        <button type="button" onclick="generateResume()">Generate Resume</button>
-      </form>
-    </div>
-    <div class="profile-picture-section">
-      <label for="profilePic">Profile Picture:</label>
-      <input type="file" id="profilePic" accept="image/*">
-      <img id="profilePicPreview" src="" alt="Profile Preview" style="display:none; width:120px; height:120px; border-radius:50%; margin-top:10px;">
-    </div>
-    <div class="progress-bar-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
+    <form id="resume-form">
+      <label>Name: <input type="text" id="name" required></label>
+      <label>Email: <input type="email" id="email" required></label>
+      <label>Phone: <input type="text" id="phone"></label>
+      <label>Summary: <textarea id="summary"></textarea></label>
+      <label>Experience: <textarea id="experience"></textarea></label>
+      <label>Education: <textarea id="education"></textarea></label>
+      <label>Skills (comma-separated): <input type="text" id="skills"></label>
+      <button type="button" id="generateDownloadBtn">Generate & Download PDF</button>
+    </form>
 
-    <div class="resume-preview" id="resume-preview">
+    <div id="resume-preview" class="resume-preview">
       <h2>Your Resume</h2>
       <div id="output"></div>
     </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
