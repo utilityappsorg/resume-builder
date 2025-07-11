@@ -1,52 +1,35 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
+  background: #f0f0f0;
   padding: 20px;
-  background: #7488b9;
-
 }
-
 .container {
-  max-width: 1000px;
+  max-width: 700px;
   margin: auto;
   background: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
-
-h1, h2 {
-  text-align: center;
-}
-
-label {
+label, textarea, input {
   display: block;
+  width: 100%;
   margin: 10px 0;
 }
-
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  box-sizing: border-box;
-}
-
 button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
   background: #007bff;
   color: white;
-  padding: 10px;
   border: none;
   cursor: pointer;
-  width: 100%;
-  margin-top: 10px;
 }
-
 button:hover {
   background: #0056b3;
 }
-
 .resume-preview {
-  margin-top: 30px;
   border-top: 1px solid #ccc;
+  margin-top: 30px;
   padding-top: 20px;
   width: auto;
   min-width: 500px;
@@ -62,6 +45,7 @@ button:hover {
   overflow: visible;
   display: block;
 }
+
 .resume-preview h2 {
   color: #007bff;
   margin-bottom: 18px;
@@ -109,6 +93,4 @@ footer {
   font-size: 0.9rem;
   color: #555;
 }
-
-
 
